@@ -24,6 +24,10 @@
 
 之后会在相同目录下生成同名的 PDF 文件.
 
+## 运行样例
+
+仓库中有一个 [测试文件](./test.md) 和一个 [测试结果](./test.pdf) 可以查看
+
 ## References
 
 [Converting Markdown to Beautiful PDF with Pandoc](https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/#conclusion)
