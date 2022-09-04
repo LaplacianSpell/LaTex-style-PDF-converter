@@ -1,0 +1,69 @@
+%%%===Line Pattern===%%%
+\linespread{1.3}\selectfont   % 行距
+
+% page set
+\usepackage{fancyvrb,newverbs}
+\usepackage[top=1.8cm, bottom=1.2cm, left=2cm, right=2cm]{geometry}
+\usepackage[most]{tcolorbox}
+
+%%%===Deep Nested===%%%
+\usepackage{enumitem}
+\setlistdepth{9}
+\setlist[itemize,1]{label=$\bullet$}
+\setlist[itemize,2]{label=$\bullet$}
+\setlist[itemize,3]{label=$\bullet$}
+\setlist[itemize,4]{label=$\bullet$}
+\setlist[itemize,5]{label=$\bullet$}
+\setlist[itemize,6]{label=$\bullet$}
+\setlist[itemize,7]{label=$\bullet$}
+\setlist[itemize,8]{label=$\bullet$}
+\setlist[itemize,9]{label=$\bullet$}
+\renewlist{itemize}{itemize}{9}
+
+\setlist[enumerate,1]{label=$\arabic*.$}
+\setlist[enumerate,2]{label=$\alph*.$}
+\setlist[enumerate,3]{label=$\roman*.$}
+\setlist[enumerate,4]{label=$\arabic*.$}
+\setlist[enumerate,5]{label=$\alpha*$}
+\setlist[enumerate,6]{label=$\roman*.$}
+\setlist[enumerate,7]{label=$\arabic*.$}
+\setlist[enumerate,8]{label=$\alph*.$}
+\setlist[enumerate,9]{label=$\roman*.$}
+\renewlist{enumerate}{enumerate}{9}
+
+
+%%%===Code Block===%%%
+% change background color for inline code in
+% markdown files. The following code does not work well for
+% long text as the text will exceed the page boundary
+\definecolor{bgcolor}{HTML}{1E1E1E}
+\let\oldtexttt\texttt
+
+\renewcommand{\texttt}[1]{
+  \colorbox{bgcolor}{\oldtexttt{#1}}
+}
+
+%%===Block Quote===%%
+% change style of quote, see also https://tex.stackexchange.com/a/436253/114857
+\definecolor{linequote}{RGB}{224,215,188}
+\definecolor{backquote}{RGB}{249,245,233}
+\definecolor{bordercolor}{RGB}{221,221,221}
+
+% change left border: https://tex.stackexchange.com/a/475716/114857
+% change left margin: https://tex.stackexchange.com/a/457936/114857
+\newtcolorbox{myquote}[1][]{%
+    enhanced,
+    breakable,
+    size=minimal,
+    left=10pt,
+    top=5pt,
+    frame hidden,
+    boxrule=0pt,
+    sharp corners=all,
+    colback=backquote,
+    borderline west={2pt}{0pt}{bordercolor},
+    #1
+}
+
+% redefine quote environment to use the myquote environment, see https://tex.stackexchange.com/a/337587/114857
+\renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
